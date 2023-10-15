@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .banner {
+            height: 48vw;
+        }
+
+        .banner img {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+        }
+
+        @media screen and (max-width: 640px) {
+            .banner img {
+                position: absolute;
+                bottom: 0;
+                width: auto;
+                height: 100%;
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="explorer.html">Explorer</a>
+                </div>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav">
+                    <a href="#" class="active">Translate</a>
+                    <a href="index.html">Home</a>
+                    <a href="#">Collections</a>
+                    <a href="#">Artists</a>
+                    <a href="#">Log in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="media/banner3.jpg" alt="" class="w-100">
+        <div class="banner-form">
+            <div class="banner-form__title">
+                <div><h2>Explorer the collection</h2></div>
+                <div class="desc">
+                    <p>
+                         Welcome to the new version of Collection online. Find out more about <a href="#">ongoing improvements.</a> For help and further information read out <a href="#">online guide.</a>
+                    </p>
+                </div>
+            </div>
+            <div class="banner-form__content">
+                <select name="">
+                    <option value="">Search by: All fields</option>
+                </select>
+                <input type="text" placeholder="Enter a keyword, person, place, or museum number">
+                <button>
+                    <img src="media/search-b.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container mb-3">
+            <h3 class="mb-3">Paintings</h3>
+            <div class="stories paintings">
+                <div class="stories-item">
+                    <div class="stories-item__img">
+                        <img src="media/e1.jpg" alt="">
+                    </div>
+                    <p>
+                        Explain Text
+                    </p>
+                </div>
+                <div class="stories-item">
+                    <div class="stories-item__img">
+                        <img src="media/e2.jpg" alt="">
+                    </div>
+                    <p>
+                        Explain Text
+                    </p>
+                </div>
+                <div class="stories-arrow">
+                    <img src="media/arrow2.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="container mb-3">
+            <h3 class="mb-3">Sculpts</h3>
+            <div class="stories paintings">
+                <div class="stories-item">
+                    <div class="stories-item__img">
+                        <img src="media/1.jpg" alt="">
+                    </div>
+                    <p>
+                        Explain Text
+                    </p>
+                </div>
+                <div class="stories-item">
+                    <div class="stories-item__img">
+                        <img src="media/e3.jpg" alt="">
+                    </div>
+                    <p>
+                        Explain Text
+                    </p>
+                </div>
+                <div class="stories-arrow">
+                    <img src="media/arrow2.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-list">
+        <a href="#">Support</a>
+        <a href="#">About</a>
+    </div>
+    </div>
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
