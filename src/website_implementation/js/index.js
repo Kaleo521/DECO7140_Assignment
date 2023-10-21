@@ -11,16 +11,16 @@ for (let i = 0; i < aImgArtist.length; i++) {
     }
 }
 
-var mySwiper = new Swiper('.swiper', {
+var mySwiper = new Swiper('.banner .swiper', {
     autoplay: true,
-    loop: true, // 循环模式选项
+    loop: true, // Loop mode options
 
-    // 如果需要分页器
+    // If you need a pager
     pagination: {
         el: '.swiper-pagination',
     },
 
-    // 如果需要前进后退按钮
+    // If you need the forward and backward button
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
