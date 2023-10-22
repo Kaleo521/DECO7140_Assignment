@@ -23,7 +23,19 @@
                     <span></span>
                 </div>
                 <div class="nav">
-                    <a href="#" class="active">Translate</a>
+                    <div id="google_translate_element"></div>
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement(
+                                { pageLanguage: 'en' },
+                                'google_translate_element'
+                            );
+                        }
+                    </script>
+
+                    <script type="text/javascript"
+                        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+                        </script>
                     <a href="index.html">Home</a>
                     <a href="explorer.html">Explorer</a>
                     <a href="artist.html">Artists</a>
@@ -90,6 +102,13 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="comments-form">
+            <input type="text" placeholder="name" v-model="username">
+            <textarea placeholder="comment" v-model="comment"></textarea>
+            <el-rate v-model="rating" allow-half>Rate</el-rate>
+            <button class="btn" @click="handleSubmit">Submit</button>
+        </div>
             <div class="comments">
                 <h2>Feedback and Comments</h2>
                 <template v-if="list.length!=0">
@@ -162,13 +181,7 @@
                         Helpful?
                     </div>
                 </div> -->
-            </div>
-            <div class="comments-form">
-                <input type="text" placeholder="name" v-model="username">
-                <textarea placeholder="comment" v-model="comment"></textarea>
-                <el-rate v-model="rating" allow-half>Rate</el-rate>
-                <button class="btn" @click="handleSubmit">Submit</button>
-            </div>
+            
         </div>
     </div>
     <div class="btn-list">
