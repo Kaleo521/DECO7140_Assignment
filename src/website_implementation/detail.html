@@ -194,55 +194,67 @@
     <script src="js/menu.js"></script>
     <script src="js/detail.js"></script>
     <script src="js/comment.js"></script>
-    <script>
-        const baseURL = "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/comments/";
-        const postCommentURL = baseURL;
-        const postCommentMethod = "POST";
-        const postCommentHeaders = {
-            'Content-Type': 'application/json'
-        };
-        const getCommentsURL = `${baseURL}?website_code=example123`;
-        const getCommentsMethod = "GET";
+   <script>
+    // Define base URL for API endpoints
+    const baseURL = "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/comments/";
+    
+    // Define endpoint and method for posting comments
+    const postCommentURL = baseURL;
+    const postCommentMethod = "POST";
+    const postCommentHeaders = {
+        'Content-Type': 'application/json'
+    };
 
-        new Vue({
-            el: '#app',
-            data: {
-                username: '',
-                comment: '',
-                rating: 0,
-                list: []
+    // Define endpoint and method for fetching comments. 
+    // The query parameter `website_code=example123` specifies which comments to retrieve.
+    const getCommentsURL = `${baseURL}?website_code=example123`;
+    const getCommentsMethod = "GET";
+
+    // Create a new Vue instance
+    new Vue({
+        el: '#app',  // Bind the Vue instance to the DOM element with the id 'app'
+        data: {
+            username: '',      // Data property for the username input field
+            comment: '',       // Data property for the comment input field
+            rating: 0,         // Data property for the rating input
+            list: []           // Data property to store the list of comments retrieved from the API
+        },
+        created() {  // Lifecycle hook that is called after the instance has been created
+            this.getList();  // Fetch the list of comments when the Vue instance is created
+        },
+        methods: {  // Define methods that this Vue instance will use
+            handleSubmit() {
+                // Convert the user input data into a JSON string
+                const postCommentBody = JSON.stringify({
+                    username: this.username,
+                    comment: this.comment,
+                    website_code: "example123",
+                    rating: this.rating,
+                });
+
+                console.log(postCommentBody);  // Log the JSON string to the console
+
+                // Make a POST request to the API to save the comment
+                fetch(postCommentURL, {
+                    method: postCommentMethod,
+                    headers: postCommentHeaders,
+                    body: postCommentBody
+                })
+                    .then(response => response.json())
+                    .then(data => this.getList());  // After saving the comment, fetch the updated list of comments
             },
-            created() {
-                this.getList();
-            },
-            methods: {
-                handleSubmit() {
-                    const postCommentBody = JSON.stringify({
-                        username: this.username,
-                        comment: this.comment,
-                        website_code: "example123",
-                        rating: this.rating,
-                    });
-                    console.log(postCommentBody);
-                    fetch(postCommentURL, {
-                        method: postCommentMethod,
-                        headers: postCommentHeaders,
-                        body: postCommentBody
-                    })
-                        .then(response => response.json())
-                        .then(data => this.getList());
-
-                },
-                getList() {
-                    fetch(getCommentsURL, {
-                        method: getCommentsMethod,
-                    })
-                        .then(response => response.json())
-                        .then(data => this.list = data);
-
-                }
-            }
-        });
+            getList() {
+                // Make a GET request to the API to fetch the list of comments
+                fetch(getCommentsURL, {
+                    method: getCommentsMethod,
+                })
+                    .then(response => response.json())
+                    .then(data => this.list = data);  // Update the 'list' data property with the fetched comments
+            } //This code is for a Vue application that allows users to post comments and view a list of comments. 
+            //The comments are fetched from and posted to an API hosted at the specified baseURL.
+        }
+    });
+</script>
 
 
 
