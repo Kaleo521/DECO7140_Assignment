@@ -780,7 +780,7 @@ a:hover {
 
 #subscribe-form input[type="submit"] {
   cursor: pointer; /* changing the cursor to a pointer when hovering over the submit button */
-  background-color: #28a745; /* setting the background color of the submit button */
+  background-color: #333; /* setting the background color of the submit button */
   transition: background-color 0.3s; /* adding a transition effect to the submit button background color */
 }
 
