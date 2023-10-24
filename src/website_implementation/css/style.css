@@ -511,7 +511,7 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
-/* 中型设备适配 */
+/* make page fit for smaller devices */
 @media screen and (max-width: 1024px) {
   .banner-title {
     font-size: 4.5vw;
