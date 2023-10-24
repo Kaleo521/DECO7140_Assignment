@@ -84,16 +84,16 @@
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
-            <div class="comments">
-                <h2>Feedback and Comments</h2>
+            <h2 class="text-center title" style="margin-bottom: 1em;margin-top: 1em;">Leave a Message</h2>
+            <div class="comments" style="background-color: #00000099;">
                 <template v-if="list.length!=0">
                     <div class="comment" v-for="comment in list">
                         <!-- <div class="star">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
+                        <img src="media/star-off.png" alt="star_sign">
+                        <img src="media/star-off.png" alt="star_sign">
+                        <img src="media/star-off.png" alt="star_sign">
+                        <img src="media/star-off.png" alt="star_sign">
+                        <img src="media/star-off.png" alt="star_sign">
                     </div> -->
                         <el-rate v-model="rating" show-score disabled text-color="#ff9900">Rate</el-rate>
                         <p class="comment-body">
@@ -108,7 +108,7 @@
                         </p>
                         <div class="comment-user">
                             <div class="comment-user__avatar">
-                                <img src="media/user.png" alt="user_image">
+                                <img src="media/user.png" alt="">
                             </div>
                             <a href="#">{{comment.username}}</a>
                             <span>
@@ -116,50 +116,13 @@
                             </span>
                         </div>
                         <div class="comment-like">
-                            <img src="media/like.png" alt="like_image">
+                            <img src="media/like.png" alt="">
                             Helpful?
                         </div>
                     </div>
                 </template>
-                <h2 v-else>Empty</h2>
-                <!-- <div class="comment">
-                    <div class="star">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
-                        <img src="media/star-off.png" alt="">
-                    </div>
-                    <p class="comment-body">
-                        Lovingly made, carefully packed and shipped - and now an absolute eye-catcher at my home. Thank
-                        youlLovingly made, very carefully packed and dispatched . and now my new eye-catcher at home.
-                        Thank You
-                    </p>
-                    <h6>
-                        See in original language
-                    </h6>
-                    <p class="comment-link">
-                        Purchased item: <a href="#">Abstract Mid Century</a>, <a href="#">Modern Home</a>, <a
-                            href="#">Sculpture Art</a>, <a href="#">Modern Retro Sc...</a>
-                    </p>
-                    <div class="comment-user">
-                        <div class="comment-user__avatar">
-                            <img src="media/user.png" alt="">
-                        </div>
-                        <a href="#">Sara Zingg</a>
-                        <span>
-                            29 Oct, 2020
-                        </span>
-                    </div>
-                    <div class="comment-like">
-                        <img src="media/like.png" alt="">
-                        Helpful?
-                    </div>
-                </div> -->
+                <h2 style="padding: 0 15px;" v-else>Empty</h2>
             </div>
-            <script src="js/swiper-bundle.js"></script>
-            <script src="js/menu.js"></script>
-            <script src="js/artist.js"></script>
             <div class="comments-form">
                 <input type="text" placeholder="name" v-model="username">
                 <textarea placeholder="comment" v-model="comment"></textarea>
@@ -175,62 +138,10 @@
     </div>
     <script src="js/vue.js"></script>
     <script src="js/element-ui.js"></script>
+    <script src="js/swiper-bundle.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/detail.js"></script>
+    <script src="js/artist.js"></script>
     <script src="js/comment.js"></script>
-    <script>
-        const baseURL = "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/comments/";
-        const postCommentURL = baseURL;
-        const postCommentMethod = "POST";
-        const postCommentHeaders = {
-            'Content-Type': 'application/json'
-        };
-        const getCommentsURL = `${baseURL}?website_code=example123`;
-        const getCommentsMethod = "GET";
-
-        new Vue({
-            el: '#app',
-            data: {
-                username: '',
-                comment: '',
-                rating: 0,
-                list: []
-            },
-            created() {
-                this.getList();
-            },
-            methods: {
-                handleSubmit() {
-                    const postCommentBody = JSON.stringify({
-                        username: this.username,
-                        comment: this.comment,
-                        website_code: "example1234",
-                        rating: this.rating,
-                    });
-                    console.log(postCommentBody);
-                    fetch(postCommentURL, {
-                        method: postCommentMethod,
-                        headers: postCommentHeaders,
-                        body: postCommentBody
-                    })
-                        .then(response => response.json())
-                        .then(data => this.getList());
-
-                },
-                getList() {
-                    fetch(getCommentsURL, {
-                        method: getCommentsMethod,
-                    })
-                        .then(response => response.json())
-                        .then(data => this.list = data);
-
-                }
-            }
-        });
-
-
-
-    </script>
    
 </body>
 
